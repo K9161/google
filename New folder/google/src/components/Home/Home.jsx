@@ -6,19 +6,16 @@ export default function Home()
 
 {
   const [products, setProducts] = useState([]);
-
+useEffect(()=>
   async function getProducts() 
   {
     var response = await fetch('https://fakestoreapi.com/products')
  
     var finalResult = await response.json();
     setProducts(finalResult);
- return finalResult;
-  }
-  useEffect(() => {
-    getProducts();
-  }, []);
-
+     return finalResult;
+  } ,[])
+  
 
 function deleteProduct(id) 
     {
